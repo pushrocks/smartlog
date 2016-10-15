@@ -1,0 +1,28 @@
+{
+  "name": "smartlog",
+  "version": "1.0.0",
+  "description": "ultra stable logging API, that allows registering third party log tools",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "(npmts)"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@gitlab.com/pushrocks/smartlog.git"
+  },
+  "keywords": [
+    "log",
+    "stable",
+    "register",
+    "beautylog"
+  ],
+  "author": "Lossless GmbH",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://gitlab.com/pushrocks/smartlog/issues"
+  },
+  "homepage": "https://gitlab.com/pushrocks/smartlog#README",
+  "dependencies": {
+    "typings-global": "^1.0.14"
+  }
+}
