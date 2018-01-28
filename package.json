@@ -1,28 +1,25 @@
 {
   "name": "smartlog",
-  "version": "1.0.0",
-  "description": "ultra stable logging API, that allows registering third party log tools",
+  "version": "1.0.1",
+  "description": "winston based logger for large scale projects",
   "main": "dist/index.js",
-  "scripts": {
-    "test": "(npmts)"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+ssh://git@gitlab.com/pushrocks/smartlog.git"
-  },
-  "keywords": [
-    "log",
-    "stable",
-    "register",
-    "beautylog"
-  ],
+  "typings": "dist/index.d.ts",
   "author": "Lossless GmbH",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://gitlab.com/pushrocks/smartlog/issues"
+  "license": "",
+  "scripts": {
+    "test": "(npmts)",
+    "format": "(gitzone format)"
   },
-  "homepage": "https://gitlab.com/pushrocks/smartlog#README",
+  "devDependencies": {
+    "cz-conventional-changelog": "^2.1.0",
+    "tapbundle": "^1.0.13"
+  },
   "dependencies": {
-    "typings-global": "^1.0.14"
+    "winston": "^3.0.0-rc1"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }

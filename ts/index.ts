@@ -1,21 +1,13 @@
-import 'typings-global'
+import * as plugins from "./smartlog.plugins";
+import { Smartlog } from "./smartlog.classes.smartlog";
 
-export registerLogger = () => {
+export { Smartlog };
 
-}
+let defaultLogger: Smartlog;
 
-export error = (logString: string) => {
-    console.error(logString)
-}
-
-export info = (logString: string) => {
-    console.info()
-}
-
-export log = (logString: string) => {
-    console.log(logString)
-}
-
-export warn = (logString: string) => {
-    console.warn(logString)
-}
+export const getDefaultLogger = () => {
+  if (!defaultLogger) {
+    defaultLogger = new Smartlog();
+  }
+  return defaultLogger;
+};
