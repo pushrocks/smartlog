@@ -10,9 +10,9 @@ export type TLogLevel =
 
 export class Smartlog {
   private winstonInstance = new plugins.winston.createLogger({
-    level: 'silly',
+    level: "silly",
     format: plugins.winston.format.json()
-  })
+  });
 
   // ============
   // Logger Setup
@@ -27,9 +27,9 @@ export class Smartlog {
 
   /**
    * set a minimum serverity level to log
-   * @param levelArg 
+   * @param levelArg
    */
-  level (levelArg: TLogLevel) {
+  level(levelArg: TLogLevel) {
     this.winstonInstance.level(levelArg);
   }
 
@@ -39,29 +39,29 @@ export class Smartlog {
   /**
    * log stuff
    * @param logLevelArg
-   * @param logMessageArg 
+   * @param logMessageArg
    */
   log(logLevelArg: TLogLevel, logMessageArg: string) {
-    this.winstonInstance.log(logLevelArg, logMessageArg)
+    this.winstonInstance.log(logLevelArg, logMessageArg);
   }
 
   silly(logMessageArg: string) {
-    this.log('silly', logMessageArg)
+    this.log("silly", logMessageArg);
   }
 
   debug(logMessageArg) {
-    this.log('debug', logMessageArg)
+    this.log("debug", logMessageArg);
   }
 
   info(logMessageArg: string) {
-    this.log('info', logMessageArg)
+    this.log("info", logMessageArg);
   }
 
   warn(logMessageArg) {
-    this.log('warn', logMessageArg)
+    this.log("warn", logMessageArg);
   }
 
   error(logMessageArg) {
-    this.log('error', logMessageArg)
+    this.log("error", logMessageArg);
   }
 }
