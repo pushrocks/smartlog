@@ -1,19 +1,18 @@
 import * as plugins from "./smartlog.plugins";
 
-export type TLogLevel =
-  | "error"
-  | "warn"
-  | "info"
-  | "verbose"
-  | "debug"
-  | "silly";
+// interfaces
+import {
+  TEnvironment,
+  ILogContext,
+  TLogLevel,
+  TRuntime
+} from 'smartlog-interfaces'
 
 export class Smartlog {
-  private winstonInstance = new plugins.winston.createLogger({
-    level: "silly",
-    format: plugins.winston.format.json()
-  });
-
+  private logContext: ILogContext;
+  private consoleEnabled: boolean
+  private minimumLevel: TLogLevel
+  private runtime: TRuntime
   // ============
   // Logger Setup
   // ============
@@ -21,16 +20,16 @@ export class Smartlog {
   /**
    * enables console logging
    */
-  enableConsole() {
-    this.winstonInstance.add(new plugins.winston.transports.Console());
+  enableConsole () {
+    this.consoleEnabled = true
   }
 
   /**
    * set a minimum serverity level to log
    * @param levelArg
    */
-  level(levelArg: TLogLevel) {
-    this.winstonInstance.level(levelArg);
+  level (levelArg: TLogLevel) {
+
   }
 
   // =============
@@ -41,27 +40,27 @@ export class Smartlog {
    * @param logLevelArg
    * @param logMessageArg
    */
-  log(logLevelArg: TLogLevel, logMessageArg: string) {
-    this.winstonInstance.log(logLevelArg, logMessageArg);
+  log (logLevelArg: TLogLevel, logMessageArg: string) {
+    
   }
 
-  silly(logMessageArg: string) {
+  silly (logMessageArg: string) {
     this.log("silly", logMessageArg);
   }
 
-  debug(logMessageArg) {
+  debug (logMessageArg) {
     this.log("debug", logMessageArg);
   }
 
-  info(logMessageArg: string) {
+  info (logMessageArg: string) {
     this.log("info", logMessageArg);
   }
 
-  warn(logMessageArg) {
+  warn (logMessageArg) {
     this.log("warn", logMessageArg);
   }
 
-  error(logMessageArg) {
+  error (logMessageArg) {
     this.log("error", logMessageArg);
   }
 }

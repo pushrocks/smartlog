@@ -15,6 +15,7 @@
     "tapbundle": "^1.0.13"
   },
   "dependencies": {
+    "smartlog-interfaces": "^1.0.4",
     "winston": "^3.0.0-rc1"
   },
   "config": {
