@@ -1,6 +1,6 @@
 {
   "name": "smartlog",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "private": false,
   "description": "winston based logger for large scale projects",
   "main": "dist/index.js",
@@ -9,9 +9,8 @@
   "license": "UNLICENSED",
   "scripts": {
     "test": "(tsrun test/test.ts)",
-    "build": "(npmts)",
-    "format": "(gitzone format)",
-    "build": "echo \"Not needed for now\""
+    "build": "echo \"Not needed for now\"",
+    "format": "(gitzone format)"
   },
   "devDependencies": {
     "@gitzone/tsrun": "^1.0.4",
