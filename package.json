@@ -1,5 +1,5 @@
 {
-  "name": "smartlog",
+  "name": "@pushrocks/smartlog",
   "version": "1.0.4",
   "private": false,
   "description": "winston based logger for large scale projects",
