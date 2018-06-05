@@ -1,18 +1,13 @@
-import * as plugins from "./smartlog.plugins";
+import * as plugins from './smartlog.plugins';
 
 // interfaces
-import {
-  TEnvironment,
-  ILogContext,
-  TLogLevel,
-  TRuntime
-} from 'smartlog-interfaces'
+import { TEnvironment, ILogContext, TLogLevel, TRuntime } from 'smartlog-interfaces';
 
 export class Smartlog {
   private logContext: ILogContext;
-  private consoleEnabled: boolean
-  private minimumLevel: TLogLevel
-  private runtime: TRuntime
+  private consoleEnabled: boolean;
+  private minimumLevel: TLogLevel;
+  private runtime: TRuntime;
   // ============
   // Logger Setup
   // ============
@@ -20,17 +15,15 @@ export class Smartlog {
   /**
    * enables console logging
    */
-  enableConsole () {
-    this.consoleEnabled = true
+  enableConsole() {
+    this.consoleEnabled = true;
   }
 
   /**
    * set a minimum serverity level to log
    * @param levelArg
    */
-  level (levelArg: TLogLevel) {
-
-  }
+  level(levelArg: TLogLevel) {}
 
   // =============
   // log functions
@@ -40,27 +33,25 @@ export class Smartlog {
    * @param logLevelArg
    * @param logMessageArg
    */
-  log (logLevelArg: TLogLevel, logMessageArg: string) {
-    
+  log(logLevelArg: TLogLevel, logMessageArg: string) {}
+
+  silly(logMessageArg: string) {
+    this.log('silly', logMessageArg);
   }
 
-  silly (logMessageArg: string) {
-    this.log("silly", logMessageArg);
+  debug(logMessageArg) {
+    this.log('debug', logMessageArg);
   }
 
-  debug (logMessageArg) {
-    this.log("debug", logMessageArg);
+  info(logMessageArg: string) {
+    this.log('info', logMessageArg);
   }
 
-  info (logMessageArg: string) {
-    this.log("info", logMessageArg);
+  warn(logMessageArg) {
+    this.log('warn', logMessageArg);
   }
 
-  warn (logMessageArg) {
-    this.log("warn", logMessageArg);
-  }
-
-  error (logMessageArg) {
-    this.log("error", logMessageArg);
+  error(logMessageArg) {
+    this.log('error', logMessageArg);
   }
 }
