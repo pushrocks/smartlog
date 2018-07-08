@@ -1,7 +1,7 @@
 import * as plugins from './smartlog.plugins';
 
 // interfaces
-import { TEnvironment, ILogContext, TLogLevel, TRuntime } from 'smartlog-interfaces';
+import { TEnvironment, ILogContext, TLogLevel, TRuntime } from '@pushrocks/smartlog-interfaces';
 
 export class Smartlog {
   private logContext: ILogContext;

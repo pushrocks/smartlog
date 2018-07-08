@@ -9,15 +9,14 @@
   "license": "UNLICENSED",
   "scripts": {
     "test": "(tsrun test/test.ts)",
-    "build": "echo \"Not needed for now\"",
+    "build": "(npmts)",
     "format": "(gitzone format)"
   },
   "devDependencies": {
-    "@gitzone/tsrun": "^1.0.4",
-    "cz-conventional-changelog": "^2.1.0",
-    "tapbundle": "^1.0.13"
+    "@gitzone/tsrun": "^1.1.1",
+    "tapbundle": "^2.0.2"
   },
   "dependencies": {
-    "smartlog-interfaces": "^1.0.4"
+    "@pushrocks/smartlog-interfaces": "^1.0.9"
   }
 }

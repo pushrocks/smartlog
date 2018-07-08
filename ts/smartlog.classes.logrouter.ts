@@ -1,6 +1,6 @@
 import * as plugins from './smartlog.plugins';
 
-import { ILogDestination } from 'smartlog-interfaces';
+import { ILogDestination } from '@pushrocks/smartlog-interfaces';
 
 export class LogRouter {
   logDestinations: ILogDestination[] = [];
