@@ -33,7 +33,11 @@ export class Smartlog {
    * @param logLevelArg
    * @param logMessageArg
    */
-  log(logLevelArg: TLogLevel, logMessageArg: string) {}
+  log(logLevelArg: TLogLevel, logMessageArg: string) {
+    if (this.consoleEnabled) {
+      console.log(`${logLevelArg}: ${logMessageArg}`)
+    }
+  }
 
   silly(logMessageArg: string) {
     this.log('silly', logMessageArg);
