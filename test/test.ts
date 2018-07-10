@@ -4,7 +4,7 @@ import * as smartlog from '../ts/index';
 let defaultLogger: smartlog.Smartlog;
 
 tap.test('should produce instance of Smartlog', async () => {
-  defaultLogger = smartlog.getDefaultLogger();
+  defaultLogger = smartlog.defaultLogger;
   expect(defaultLogger).to.be.instanceOf(smartlog.Smartlog);
 });
 
