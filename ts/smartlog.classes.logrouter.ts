@@ -1,10 +1,23 @@
 import * as plugins from './smartlog.plugins';
 
-import { ILogDestination } from '@pushrocks/smartlog-interfaces';
+import { ILogDestination, ILogPackage } from '@pushrocks/smartlog-interfaces';
 
 export class LogRouter {
-  logDestinations: ILogDestination[] = [];
+  /**
+   * all log destinations
+   */
+  private logDestinations: ILogDestination[] = [];
+
   constructor() {}
 
-  addLogDestination;
+  public addLogDestination(logDestination: ILogDestination) {
+    this.logDestinations.push(logDestination);
+  }
+
+  // routes the log according to added logDestinations
+  routeLog(logPackageArg: ILogPackage) {
+    for (const logDestination of this.logDestinations) {
+      logDestination.handleLog(logPackageArg);
+    }
+  }
 }

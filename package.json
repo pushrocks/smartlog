@@ -8,13 +8,18 @@
   "author": "Lossless GmbH",
   "license": "UNLICENSED",
   "scripts": {
-    "test": "(tsrun test/test.ts)",
-    "build": "(npmts)",
+    "test": "(tstest test/)",
+    "build": "(tsbuild)",
     "format": "(gitzone format)"
   },
   "devDependencies": {
-    "@gitzone/tsrun": "^1.1.1",
-    "tapbundle": "^2.0.2"
+    "@gitzone/tsbuild": "^2.0.22",
+    "@gitzone/tsrun": "^1.1.13",
+    "@gitzone/tstest": "^1.0.15",
+    "@pushrocks/tapbundle": "^3.0.7",
+    "@types/node": "^10.12.1",
+    "tslint": "^5.11.0",
+    "tslint-config-prettier": "^1.15.0"
   },
   "dependencies": {
     "@pushrocks/smartlog-interfaces": "^1.0.9"

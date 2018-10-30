@@ -3,11 +3,19 @@ import * as plugins from './smartlog.plugins';
 // interfaces
 import { TEnvironment, ILogContext, TLogLevel, TRuntime } from '@pushrocks/smartlog-interfaces';
 
+import { LogRouter } from './smartlog.classes.logrouter';
+
 export class Smartlog {
   private logContext: ILogContext;
   private consoleEnabled: boolean;
   private minimumLevel: TLogLevel;
   private runtime: TRuntime;
+
+  public logRouter = new LogRouter();
+
+  public addLogDestination = this.logRouter.addLogDestination;
+
+
   // ============
   // Logger Setup
   // ============
@@ -33,29 +41,34 @@ export class Smartlog {
    * @param logLevelArg
    * @param logMessageArg
    */
-  log(logLevelArg: TLogLevel, logMessageArg: string) {
+  public log(logLevelArg: TLogLevel, logMessageArg: string) {
     if (this.consoleEnabled) {
-      console.log(`${logLevelArg}: ${logMessageArg}`)
+      console.log(`${logLevelArg}: ${logMessageArg}`);
     }
+    this.logRouter.routeLog({
+      logContext: this.logContext,
+      logLevel: logLevelArg,
+      message: logMessageArg
+    });
   }
 
-  silly(logMessageArg: string) {
+  public silly(logMessageArg: string) {
     this.log('silly', logMessageArg);
   }
 
-  debug(logMessageArg) {
+  public debug(logMessageArg) {
     this.log('debug', logMessageArg);
   }
 
-  info(logMessageArg: string) {
+  public info(logMessageArg: string) {
     this.log('info', logMessageArg);
   }
 
-  warn(logMessageArg) {
+  public warn(logMessageArg) {
     this.log('warn', logMessageArg);
   }
 
-  error(logMessageArg) {
+  public error(logMessageArg) {
     this.log('error', logMessageArg);
   }
 }
