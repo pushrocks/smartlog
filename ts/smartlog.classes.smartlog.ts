@@ -5,15 +5,25 @@ import { TEnvironment, ILogContext, TLogLevel, TRuntime } from '@pushrocks/smart
 
 import { LogRouter } from './smartlog.classes.logrouter';
 
+export interface ISmartlogContructorOptions {
+  logContext: ILogContext;
+  minimumLogLevel?: TLogLevel;
+}
+
 export class Smartlog {
   private logContext: ILogContext;
+  private minimumLogLevel: TLogLevel;
+  
   private consoleEnabled: boolean;
-  private minimumLevel: TLogLevel;
-  private runtime: TRuntime;
-
+  
   public logRouter = new LogRouter();
 
   public addLogDestination = this.logRouter.addLogDestination;
+
+  constructor(optionsArg: ISmartlogContructorOptions) {
+    this.logContext = optionsArg.logContext;
+    this.minimumLogLevel = optionsArg.minimumLogLevel;
+  }
 
 
   // ============
