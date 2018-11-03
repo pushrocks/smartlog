@@ -1,7 +1,7 @@
 import * as plugins from './smartlog.plugins';
 
 // interfaces
-import { TEnvironment, ILogContext, TLogLevel, TRuntime } from '@pushrocks/smartlog-interfaces';
+import { TLogType, TEnvironment, ILogContext, TLogLevel, TRuntime } from '@pushrocks/smartlog-interfaces';
 
 import { LogRouter } from './smartlog.classes.logrouter';
 
@@ -53,32 +53,25 @@ export class Smartlog {
    */
   public log(logLevelArg: TLogLevel, logMessageArg: string) {
     if (this.consoleEnabled) {
-      console.log(`${logLevelArg}: ${logMessageArg}`);
+      console.log(`LOG: ${logLevelArg}: ${logMessageArg}`);
     }
     this.logRouter.routeLog({
-      logContext: this.logContext,
-      logLevel: logLevelArg,
+      type: 'log',
+      context: this.logContext,
+      level: logLevelArg,
       message: logMessageArg
     });
   }
 
-  public silly(logMessageArg: string) {
-    this.log('silly', logMessageArg);
-  }
-
-  public debug(logMessageArg) {
-    this.log('debug', logMessageArg);
-  }
-
-  public info(logMessageArg: string) {
-    this.log('info', logMessageArg);
-  }
-
-  public warn(logMessageArg) {
-    this.log('warn', logMessageArg);
-  }
-
-  public error(logMessageArg) {
-    this.log('error', logMessageArg);
+  public increment(logLevelArg: TLogLevel, logMessageArg) {
+    if (this.consoleEnabled) {
+      console.log(`INCREMENT: ${logLevelArg}: ${logMessageArg}`);
+    }
+    this.logRouter.routeLog({
+      type: 'increment',
+      context: this.logContext,
+      level: logLevelArg,
+      message: logMessageArg
+    });
   }
 }
