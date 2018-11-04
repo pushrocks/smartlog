@@ -16,7 +16,7 @@ export class Smartlog {
   
   private consoleEnabled: boolean;
   
-  public logRouter = new LogRouter();
+  private logRouter = new LogRouter();
 
   public addLogDestination = this.logRouter.addLogDestination;
 
@@ -36,12 +36,6 @@ export class Smartlog {
   enableConsole() {
     this.consoleEnabled = true;
   }
-
-  /**
-   * set a minimum serverity level to log
-   * @param levelArg
-   */
-  level(levelArg: TLogLevel) {}
 
   // =============
   // log functions
