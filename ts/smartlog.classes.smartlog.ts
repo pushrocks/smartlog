@@ -77,4 +77,8 @@ export class Smartlog {
       message: logMessageArg
     });
   }
+
+  public handleLogPackage(logPackageArg: ILogPackage) {
+    this.logRouter.routeLog(logPackageArg);
+  }
 }
