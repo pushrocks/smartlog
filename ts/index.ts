@@ -11,4 +11,6 @@ const defaultLogger: Smartlog = new Smartlog({
   }
 });
 
+defaultLogger.enableConsole();
+
 export { Smartlog, defaultLogger };
