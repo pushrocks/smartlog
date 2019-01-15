@@ -1,7 +1,15 @@
 import * as plugins from './smartlog.plugins';
 
 // interfaces
-import { TLogType, TEnvironment, ILogContext, TLogLevel, TRuntime, ILogDestination, ILogPackage } from '@pushrocks/smartlog-interfaces';
+import {
+  TLogType,
+  TEnvironment,
+  ILogContext,
+  TLogLevel,
+  TRuntime,
+  ILogDestination,
+  ILogPackage
+} from '@pushrocks/smartlog-interfaces';
 
 import { LogRouter } from './smartlog.classes.logrouter';
 
@@ -13,12 +21,12 @@ export interface ISmartlogContructorOptions {
 export class Smartlog {
   private logContext: ILogContext;
   private minimumLogLevel: TLogLevel;
-  
+
   private consoleEnabled: boolean;
-  
+
   private logRouter = new LogRouter();
 
-  public addLogDestination (logDestinationArg: ILogDestination) {
+  public addLogDestination(logDestinationArg: ILogDestination) {
     this.logRouter.addLogDestination(logDestinationArg);
   }
 
@@ -26,7 +34,6 @@ export class Smartlog {
     this.logContext = optionsArg.logContext;
     this.minimumLogLevel = optionsArg.minimumLogLevel;
   }
-
 
   // ============
   // Logger Setup
@@ -59,7 +66,7 @@ export class Smartlog {
       level: logLevelArg,
       message: logMessageArg
     };
-    if(logDataArg) {
+    if (logDataArg) {
       logPackage.data = logDataArg;
     }
     this.logRouter.routeLog(logPackage);

@@ -13,15 +13,15 @@
     "format": "(gitzone format)"
   },
   "devDependencies": {
-    "@gitzone/tsbuild": "^2.0.22",
-    "@gitzone/tsrun": "^1.1.13",
-    "@gitzone/tstest": "^1.0.15",
+    "@gitzone/tsbuild": "^2.1.4",
+    "@gitzone/tsrun": "^1.1.17",
+    "@gitzone/tstest": "^1.0.18",
     "@pushrocks/tapbundle": "^3.0.7",
-    "@types/node": "^10.12.2",
-    "tslint": "^5.11.0",
-    "tslint-config-prettier": "^1.15.0"
+    "@types/node": "^10.12.18",
+    "tslint": "^5.12.1",
+    "tslint-config-prettier": "^1.17.0"
   },
   "dependencies": {
-    "@pushrocks/smartlog-interfaces": "^2.0.2"
+    "@pushrocks/smartlog-interfaces": "^2.0.5"
   }
 }
