@@ -57,7 +57,7 @@ export class Smartlog {
    */
   public log(logLevelArg: TLogLevel, logMessageArg: string, logDataArg?: any) {
     if (this.consoleEnabled) {
-      console.log(`LOG: ${logLevelArg}: ${logMessageArg}`);
+      console.log(`LOG => ${new Date().getHours()}:${new Date().getMinutes()}:${new Date().getSeconds()} => ${logLevelArg}: ${logMessageArg}`);
     }
     const logPackage: ILogPackage = {
       timestamp: Date.now(),
