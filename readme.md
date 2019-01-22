@@ -1,4 +1,4 @@
-# smartlog
+# @pushrocks/smartlog
 
 winston based logger for large scale projects
 
@@ -25,6 +25,48 @@ winston based logger for large scale projects
 ## Usage
 
 Use TypeScript for best in class instellisense.
+
+smartlog id s minimal logging package that provides a consistent experience across the complete logging stack. Smartlog allows you to create a logger instance like this:
+
+```ts
+import { Smartlog } from '@pushrocks/smartlog';
+const logger = new Smartlog({
+  {
+    company?: 'My awesome company',
+    companyunit?: 'my awesome cloud team',
+    containerName?: 'awesome-container',
+    environment: TEnvironment: 'kubernetes-production',
+    runtime: 'node',
+    zone: 'zone x'
+  }
+})
+
+logger.log('silly', `a silly statement`); // log levels are shown to you by the IDE
+```
+
+There is also a default logger available that you can use:
+
+```ts
+import {Smartlog, defaultLogger } from '@pushrocks/smartlog';
+
+export class MyAwesomeClass {
+  constructor(public logger: Smartlog = defaultLogger) {
+    // what happens here that a instance of this class will have instance.logger available
+    // if you set a custom logger, than that will be used, if not the default logger.
+  }
+}
+```
+
+### Destinations
+smartlog supports different kinds of destinations.
+
+The following destinations are available:
+
+* [@pushrocks/smartlog-destination-local](https://www.npmjs.com/package/@pushrocks/smartlog-destination-local) - outputs logs to the local console in a colorful, nice to read way.
+* [@pushrocks/smartlog-destination-devtools](https://www.npmjs.com/package/@pushrocks/smartlog-destination-devtools) - outputs logs into the browser console in a colorful, nice to read way.
+* [@pushrocks/smartlog-destination-receiver](https://www.npmjs.com/package/@pushrocks/smartlog-destination-receiver) - sends logs to a smartlog receiver (more about that below)
+* [@mojoio/scalyr](https://www.npmjs.com/package/@pushrocks/smartlog-destination-receiver) - an scalyr API package that comes with a smartlog log destination included
+* [@mojoio/elasticsearch](https://www.npmjs.com/package/@mojoio/elasticsearch) - an elasticsearch API package that comes with a smartlog destination included
 
 For further information read the linked docs at the top of this README.
 
