@@ -68,6 +68,11 @@ The following destinations are available:
 * [@mojoio/scalyr](https://www.npmjs.com/package/@pushrocks/smartlog-destination-receiver) - an scalyr API package that comes with a smartlog log destination included
 * [@mojoio/elasticsearch](https://www.npmjs.com/package/@mojoio/elasticsearch) - an elasticsearch API package that comes with a smartlog destination included
 
+### Adding a log destination
+```
+// TBD
+```
+
 For further information read the linked docs at the top of this README.
 
 > MIT licensed | **&copy;** [Lossless GmbH](https://lossless.gmbh)
