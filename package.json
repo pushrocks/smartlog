@@ -1,6 +1,6 @@
 {
   "name": "@pushrocks/smartlog",
-  "version": "2.0.14",
+  "version": "2.0.15",
   "private": false,
   "description": "winston based logger for large scale projects",
   "main": "dist/index.js",
