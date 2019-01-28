@@ -1,4 +1,4 @@
-# smartlog
+# @pushrocks/smartlog
 minimalistic distributed and extensible logging tool
 
 ## Availabililty and Links
@@ -12,8 +12,8 @@ minimalistic distributed and extensible logging tool
 [![coverage report](https://gitlab.com/pushrocks/smartlog/badges/master/coverage.svg)](https://gitlab.com/pushrocks/smartlog/commits/master)
 [![npm downloads per month](https://img.shields.io/npm/dm/@pushrocks/smartlog.svg)](https://www.npmjs.com/package/@pushrocks/smartlog)
 [![Known Vulnerabilities](https://snyk.io/test/npm/@pushrocks/smartlog/badge.svg)](https://snyk.io/test/npm/@pushrocks/smartlog)
-[![TypeScript](https://img.shields.io/badge/TypeScript-2.x-blue.svg)](https://nodejs.org/dist/latest-v6.x/docs/api/)
-[![node](https://img.shields.io/badge/node->=%206.x.x-blue.svg)](https://nodejs.org/dist/latest-v6.x/docs/api/)
+[![TypeScript](https://img.shields.io/badge/TypeScript->=%203.x-blue.svg)](https://nodejs.org/dist/latest-v10.x/docs/api/)
+[![node](https://img.shields.io/badge/node->=%2010.x.x-blue.svg)](https://nodejs.org/dist/latest-v10.x/docs/api/)
 [![JavaScript Style Guide](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
 
 ## Usage

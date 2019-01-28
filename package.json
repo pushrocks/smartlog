@@ -2,7 +2,15 @@
   "name": "@pushrocks/smartlog",
   "version": "2.0.15",
   "private": false,
-  "description": "winston based logger for large scale projects",
+  "description": "minimalistic distributed and extensible logging tool",
+  "keywords": [
+    "logging",
+    "centralized logging",
+    "json logging",
+    "scalyr",
+    "elasticsearch",
+    "logdna"
+  ],
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "author": "Lossless GmbH",
