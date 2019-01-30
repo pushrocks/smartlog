@@ -28,7 +28,7 @@ const logger = new Smartlog({
   {
     company: 'My awesome company',
     companyunit: 'my awesome cloud team',
-    containerName?: 'awesome-container',
+    containerName: 'awesome-container',
     environment: 'kubernetes-production',
     runtime: 'node',
     zone: 'zone x'
