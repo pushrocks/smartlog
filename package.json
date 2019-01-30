@@ -14,7 +14,7 @@
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "author": "Lossless GmbH",
-  "license": "UNLICENSED",
+  "license": "MIT",
   "scripts": {
     "test": "(tstest test/)",
     "build": "(tsbuild)",
