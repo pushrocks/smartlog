@@ -26,10 +26,10 @@ smartlog id s minimal logging package that provides a consistent experience acro
 import { Smartlog } from '@pushrocks/smartlog';
 const logger = new Smartlog({
   {
-    company?: 'My awesome company',
-    companyunit?: 'my awesome cloud team',
+    company: 'My awesome company',
+    companyunit: 'my awesome cloud team',
     containerName?: 'awesome-container',
-    environment: TEnvironment: 'kubernetes-production',
+    environment: 'kubernetes-production',
     runtime: 'node',
     zone: 'zone x'
   }
