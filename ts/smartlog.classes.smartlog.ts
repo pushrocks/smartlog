@@ -1,32 +1,21 @@
 import * as plugins from './smartlog.plugins';
 
-// interfaces
-import {
-  TLogType,
-  TEnvironment,
-  ILogContext,
-  TLogLevel,
-  TRuntime,
-  ILogDestination,
-  ILogPackage
-} from '@pushrocks/smartlog-interfaces';
-
 import { LogRouter } from './smartlog.classes.logrouter';
 
 export interface ISmartlogContructorOptions {
-  logContext: ILogContext;
-  minimumLogLevel?: TLogLevel;
+  logContext: plugins.smartlogInterfaces.ILogContext;
+  minimumLogLevel?: plugins.smartlogInterfaces.TLogLevel;
 }
 
 export class Smartlog {
-  private logContext: ILogContext;
-  private minimumLogLevel: TLogLevel;
+  private logContext: plugins.smartlogInterfaces.ILogContext;
+  private minimumLogLevel: plugins.smartlogInterfaces.TLogLevel;
 
   private consoleEnabled: boolean;
 
   private logRouter = new LogRouter();
 
-  public addLogDestination(logDestinationArg: ILogDestination) {
+  public addLogDestination(logDestinationArg: plugins.smartlogInterfaces.ILogDestination) {
     this.logRouter.addLogDestination(logDestinationArg);
   }
 
@@ -42,7 +31,7 @@ export class Smartlog {
   /**
    * enables console logging
    */
-  enableConsole() {
+  public enableConsole() {
     this.consoleEnabled = true;
   }
 
@@ -55,13 +44,13 @@ export class Smartlog {
    * @param logMessageArg - the log message
    * @param logDataArg - any additional log data
    */
-  public log(logLevelArg: TLogLevel, logMessageArg: string, logDataArg?: any) {
+  public log(logLevelArg: plugins.smartlogInterfaces.TLogLevel, logMessageArg: string, logDataArg?: any) {
     if (this.consoleEnabled) {
       console.log(
         `LOG => ${new Date().getHours()}:${new Date().getMinutes()}:${new Date().getSeconds()} => ${logLevelArg}: ${logMessageArg}`
       );
     }
-    const logPackage: ILogPackage = {
+    const logPackage: plugins.smartlogInterfaces.ILogPackage = {
       timestamp: Date.now(),
       type: 'log',
       context: this.logContext,
@@ -74,7 +63,7 @@ export class Smartlog {
     this.logRouter.routeLog(logPackage);
   }
 
-  public increment(logLevelArg: TLogLevel, logMessageArg) {
+  public increment(logLevelArg: plugins.smartlogInterfaces.TLogLevel, logMessageArg) {
     if (this.consoleEnabled) {
       console.log(`INCREMENT: ${logLevelArg}: ${logMessageArg}`);
     }
@@ -87,7 +76,7 @@ export class Smartlog {
     });
   }
 
-  public handleLogPackage(logPackageArg: ILogPackage) {
+  public handleLogPackage(logPackageArg: plugins.smartlogInterfaces.ILogPackage) {
     this.logRouter.routeLog(logPackageArg);
   }
 }
