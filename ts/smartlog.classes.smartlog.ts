@@ -44,7 +44,11 @@ export class Smartlog {
    * @param logMessageArg - the log message
    * @param logDataArg - any additional log data
    */
-  public log(logLevelArg: plugins.smartlogInterfaces.TLogLevel, logMessageArg: string, logDataArg?: any) {
+  public log(
+    logLevelArg: plugins.smartlogInterfaces.TLogLevel,
+    logMessageArg: string,
+    logDataArg?: any
+  ) {
     if (this.consoleEnabled) {
       console.log(
         `LOG => ${new Date().getHours()}:${new Date().getMinutes()}:${new Date().getSeconds()} => ${logLevelArg}: ${logMessageArg}`

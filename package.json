@@ -31,5 +31,16 @@
   },
   "dependencies": {
     "@pushrocks/smartlog-interfaces": "^2.0.5"
-  }
+  },
+  "files": [
+    "ts/**/*",
+    "ts_web/**/*",
+    "dist/**/*",
+    "dist_web/**/*",
+    "dist_ts_web/**/*",
+    "assets/**/*",
+    "cli.js",
+    "npmextra.json",
+    "readme.md"
+  ]
 }
