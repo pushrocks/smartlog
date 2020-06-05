@@ -1,3 +1,4 @@
+import * as isounique from '@pushrocks/isounique';
 import * as smartlogInterfaces from '@pushrocks/smartlog-interfaces';
 
-export { smartlogInterfaces };
+export { isounique, smartlogInterfaces };

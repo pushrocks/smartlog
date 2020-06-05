@@ -61,12 +61,16 @@ export class Smartlog implements plugins.smartlogInterfaces.ILogDestination {
    * @param logLevelArg - the log level
    * @param logMessageArg - the log message
    * @param logDataArg - any additional log data
+   * @param correlationArg - info about corrleations
    */
   public log(
     logLevelArg: plugins.smartlogInterfaces.TLogLevel,
     logMessageArg: string,
     logDataArg?: any,
-    logCorrelationIdArg: string = '123'
+    correlationArg: plugins.smartlogInterfaces.ILogCorrelation = {
+      id: plugins.isounique.uni(),
+      type: 'none'
+    }
   ) {
     if (this.consoleEnabled) {
       this.safeConsoleLog(
@@ -78,7 +82,7 @@ export class Smartlog implements plugins.smartlogInterfaces.ILogDestination {
       type: 'log',
       context: this.logContext,
       level: logLevelArg,
-      correlationId: logCorrelationIdArg,
+      correlation: correlationArg,
       message: logMessageArg
     };
     if (logDataArg) {
@@ -91,7 +95,10 @@ export class Smartlog implements plugins.smartlogInterfaces.ILogDestination {
     logLevelArg: plugins.smartlogInterfaces.TLogLevel,
     logMessageArg: string,
     logDataArg?: any,
-    logCorrelationIdArg: string = '123'
+    correlationArg: plugins.smartlogInterfaces.ILogCorrelation = {
+      id: plugins.isounique.uni(),
+      type: 'none'
+    }
   ) {
     if (this.consoleEnabled) {
       this.safeConsoleLog(`INCREMENT: ${logLevelArg}: ${logMessageArg}`);
@@ -102,7 +109,7 @@ export class Smartlog implements plugins.smartlogInterfaces.ILogDestination {
       context: this.logContext,
       level: logLevelArg,
       message: logMessageArg,
-      correlationId: logCorrelationIdArg
+      correlation: correlationArg
     });
   }
 
