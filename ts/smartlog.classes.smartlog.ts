@@ -31,9 +31,7 @@ export class Smartlog implements plugins.smartlogInterfaces.ILogDestination {
   /**
    * enables console logging
    */
-  public enableConsole(optionsArg?: {
-    captureAll: boolean;
-  }) {
+  public enableConsole(optionsArg?: { captureAll: boolean }) {
     if (optionsArg && optionsArg.captureAll) {
       const write = process.stdout.write;
       /* import * as fs from 'fs';
@@ -73,9 +71,7 @@ export class Smartlog implements plugins.smartlogInterfaces.ILogDestination {
     }
   ) {
     if (this.consoleEnabled) {
-      this.safeConsoleLog(
-        `${logLevelArg}: ${logMessageArg}`
-      );
+      this.safeConsoleLog(`${logLevelArg}: ${logMessageArg}`);
     }
     const logPackage: plugins.smartlogInterfaces.ILogPackage = {
       timestamp: Date.now(),
@@ -118,6 +114,8 @@ export class Smartlog implements plugins.smartlogInterfaces.ILogDestination {
   }
 
   private safeConsoleLog(logLine: string) {
-    console.log(`LOG => ${new Date().getHours()}:${new Date().getMinutes()}:${new Date().getSeconds()} => ${logLine}`);
+    console.log(
+      `LOG => ${new Date().getHours()}:${new Date().getMinutes()}:${new Date().getSeconds()} => ${logLine}`
+    );
   }
 }
