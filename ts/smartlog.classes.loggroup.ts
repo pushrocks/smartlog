@@ -5,13 +5,17 @@ export class LogGroup {
   public smartlogRef: Smartlog;
   public transactionId: string;
   public groupId = plugins.isounique.uni();
-  
+
   constructor(smartlogInstance: Smartlog, transactionIdArg: string) {
     this.smartlogRef = smartlogInstance;
     this.transactionId = transactionIdArg;
   }
 
-  public log(logLevelArg: plugins.smartlogInterfaces.TLogLevel, logMessageArg: string, logDataArg?: any) {
+  public log(
+    logLevelArg: plugins.smartlogInterfaces.TLogLevel,
+    logMessageArg: string,
+    logDataArg?: any
+  ) {
     this.smartlogRef.log(logLevelArg, logMessageArg, logDataArg, {
       id: plugins.isounique.uni(),
       type: 'none',
@@ -20,5 +24,4 @@ export class LogGroup {
       transaction: this.transactionId
     });
   }
-
 }
