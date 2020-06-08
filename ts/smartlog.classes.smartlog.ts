@@ -34,7 +34,7 @@ export class Smartlog implements plugins.smartlogInterfaces.ILogDestination {
    * enables console logging
    */
   public enableConsole(optionsArg?: { captureAll: boolean }) {
-    if (optionsArg && optionsArg.captureAll) {
+    if (process && optionsArg && optionsArg.captureAll) {
       const write = process.stdout.write;
       /* import * as fs from 'fs';
       const fileStream = fs.createWriteStream(plugins.path.join(paths.nogitDir, 'output.txt'), {
