@@ -1,6 +1,6 @@
 {
   "name": "@pushrocks/smartlog",
-  "version": "2.0.25",
+  "version": "2.0.26",
   "private": false,
   "description": "minimalistic distributed and extensible logging tool",
   "keywords": [
