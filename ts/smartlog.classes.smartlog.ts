@@ -1,6 +1,7 @@
 import * as plugins from './smartlog.plugins';
 
 import { LogRouter } from './smartlog.classes.logrouter';
+import { LogGroup } from '.';
 
 export interface ISmartlogContructorOptions {
   logContext: plugins.smartlogInterfaces.ILogContext;
@@ -11,7 +12,7 @@ export class Smartlog implements plugins.smartlogInterfaces.ILogDestination {
   private logContext: plugins.smartlogInterfaces.ILogContext;
   private minimumLogLevel: plugins.smartlogInterfaces.TLogLevel;
 
-  private uniInstanceId: string = plugins.isounique.uni();
+  public uniInstanceId: string = plugins.isounique.uni();
 
   private consoleEnabled: boolean;
 
@@ -126,5 +127,9 @@ export class Smartlog implements plugins.smartlogInterfaces.ILogDestination {
     console.log(
       `LOG => ${new Date().getHours()}:${new Date().getMinutes()}:${new Date().getSeconds()} => ${logLine}`
     );
+  }
+
+  public createLogGroup(transactionId: string = 'none') {
+    return new LogGroup(this, transactionId);
   }
 }

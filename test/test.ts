@@ -35,4 +35,9 @@ tap.test('should be able to log things', async () => {
   testSmartLog.log('silly', 'hi');
 });
 
+tap.test('should create a log group', async () => {
+  const logGroup = testSmartLog.createLogGroup('some cool transaction');
+  logGroup.log('info', 'this is logged from a log group');
+})
+
 tap.start();
