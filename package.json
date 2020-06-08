@@ -17,7 +17,7 @@
   "license": "MIT",
   "scripts": {
     "test": "(tstest test/)",
-    "build": "(tsbuild --web)",
+    "build": "(tsbuild --web && tsbundle npm)",
     "format": "(gitzone format)"
   },
   "devDependencies": {
@@ -30,8 +30,9 @@
     "tslint-config-prettier": "^1.18.0"
   },
   "dependencies": {
+    "@gitzone/tsbundle": "^1.0.69",
     "@pushrocks/isounique": "^1.0.4",
-    "@pushrocks/smartlog-interfaces": "^2.0.15"
+    "@pushrocks/smartlog-interfaces": "^2.0.18"
   },
   "files": [
     "ts/**/*",

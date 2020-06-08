@@ -11,6 +11,8 @@ export class Smartlog implements plugins.smartlogInterfaces.ILogDestination {
   private logContext: plugins.smartlogInterfaces.ILogContext;
   private minimumLogLevel: plugins.smartlogInterfaces.TLogLevel;
 
+  private uniInstanceId: string = plugins.isounique.uni();
+
   private consoleEnabled: boolean;
 
   private logRouter = new LogRouter();
@@ -65,14 +67,21 @@ export class Smartlog implements plugins.smartlogInterfaces.ILogDestination {
     logLevelArg: plugins.smartlogInterfaces.TLogLevel,
     logMessageArg: string,
     logDataArg?: any,
-    correlationArg: plugins.smartlogInterfaces.ILogCorrelation = {
-      id: plugins.isounique.uni(),
-      type: 'none'
-    }
+    correlationArg?: plugins.smartlogInterfaces.ILogCorrelation
   ) {
+    correlationArg = {
+      ...{
+        id: plugins.isounique.uni(),
+        type: 'none',
+        instance: this.uniInstanceId
+      },
+      ...correlationArg
+    };
+
     if (this.consoleEnabled) {
       this.safeConsoleLog(`${logLevelArg}: ${logMessageArg}`);
     }
+
     const logPackage: plugins.smartlogInterfaces.ILogPackage = {
       timestamp: Date.now(),
       type: 'log',
