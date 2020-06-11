@@ -32,7 +32,7 @@
   "dependencies": {
     "@gitzone/tsbundle": "^1.0.69",
     "@pushrocks/isounique": "^1.0.4",
-    "@pushrocks/smartlog-interfaces": "^2.0.19"
+    "@pushrocks/smartlog-interfaces": "^2.0.20"
   },
   "files": [
     "ts/**/*",

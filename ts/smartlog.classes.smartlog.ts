@@ -129,8 +129,8 @@ export class Smartlog implements plugins.smartlogInterfaces.ILogDestination {
     });
   }
 
-  public handleLog(logPackageArg: plugins.smartlogInterfaces.ILogPackage) {
-    this.logRouter.routeLog(logPackageArg);
+  public async handleLog(logPackageArg: plugins.smartlogInterfaces.ILogPackage) {
+    await this.logRouter.routeLog(logPackageArg);
   }
 
   private safeConsoleLog(logLine: string) {
