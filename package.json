@@ -25,14 +25,14 @@
     "@gitzone/tsrun": "^1.2.12",
     "@gitzone/tstest": "^1.0.33",
     "@pushrocks/tapbundle": "^3.2.1",
-    "@types/node": "^14.0.11",
+    "@types/node": "^14.0.13",
     "tslint": "^6.1.2",
     "tslint-config-prettier": "^1.18.0"
   },
   "dependencies": {
     "@gitzone/tsbundle": "^1.0.69",
     "@pushrocks/isounique": "^1.0.4",
-    "@pushrocks/smartlog-interfaces": "^2.0.18"
+    "@pushrocks/smartlog-interfaces": "^2.0.19"
   },
   "files": [
     "ts/**/*",

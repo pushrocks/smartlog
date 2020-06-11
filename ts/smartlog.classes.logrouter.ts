@@ -15,9 +15,9 @@ export class LogRouter {
   }
 
   // routes the log according to added logDestinations
-  routeLog(logPackageArg: ILogPackage) {
+  public async routeLog(logPackageArg: ILogPackage) {
     for (const logDestination of this.logDestinations) {
-      logDestination.handleLog(logPackageArg);
+      await logDestination.handleLog(logPackageArg);
     }
   }
 }

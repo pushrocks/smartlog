@@ -50,6 +50,16 @@ export class Smartlog implements plugins.smartlogInterfaces.ILogDestination {
         write.apply(process.stdout, args);
         return true;
       };
+
+      process.stderr.write = (...args) => {
+        if (!args[0].startsWith('LOG')) {
+          this.log('info', args[0]);
+          return;
+        }
+        // fileStream.write(args[0]);
+        write.apply(process.stderr, args);
+        return true;
+      };
     }
     this.consoleEnabled = true;
   }
@@ -64,7 +74,7 @@ export class Smartlog implements plugins.smartlogInterfaces.ILogDestination {
    * @param logDataArg - any additional log data
    * @param correlationArg - info about corrleations
    */
-  public log(
+  public async log(
     logLevelArg: plugins.smartlogInterfaces.TLogLevel,
     logMessageArg: string,
     logDataArg?: any,
@@ -94,7 +104,7 @@ export class Smartlog implements plugins.smartlogInterfaces.ILogDestination {
     if (logDataArg) {
       logPackage.data = logDataArg;
     }
-    this.logRouter.routeLog(logPackage);
+    await this.logRouter.routeLog(logPackage);
   }
 
   public increment(
