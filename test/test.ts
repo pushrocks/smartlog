@@ -40,4 +40,8 @@ tap.test('should create a log group', async () => {
   logGroup.log('info', 'this is logged from a log group');
 });
 
+tap.test('should catch error', async () => {
+  console.error(new Error('hey'));
+});
+
 tap.start();
