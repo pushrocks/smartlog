@@ -42,8 +42,15 @@ export class Smartlog implements plugins.smartlogInterfaces.ILogDestination {
         flags: 'a+'
       }); */
       process.stdout.write = (...args) => {
-        if (!args[0].startsWith('LOG')) {
-          this.log('info', args[0]);
+        const logString = args[0];
+        if (!logString.startsWith('LOG')) {
+          switch(true) {
+            case logString.startsWith('Error:'):
+              this.log('error', logString);
+              break;
+            default:
+              this.log('info', logString);
+          }
           return;
         }
         // fileStream.write(args[0]);
