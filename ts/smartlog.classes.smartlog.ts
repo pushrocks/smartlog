@@ -35,36 +35,6 @@ export class Smartlog implements plugins.smartlogInterfaces.ILogDestination {
    * enables console logging
    */
   public enableConsole(optionsArg?: { captureAll: boolean }) {
-    if (process && optionsArg && optionsArg.captureAll) {
-      const write = process.stdout.write;
-     
-      process.stdout.write = (...args) => {
-        const logString: string = args[0];
-        if (!logString.startsWith('LOG') && typeof logString === 'string') {
-          switch(true) {
-            case logString.substr(0, 20).includes('Error:'):
-              this.log('error', logString);
-              break;
-            default:
-              this.log('info', logString);
-          }
-          return;
-        }
-        // fileStream.write(args[0]);
-        write.apply(process.stdout, args);
-        return true;
-      };
-
-      process.stderr.write = (...args) => {
-        if (!args[0].startsWith('LOG')) {
-          this.log('error', args[0]);
-          return;
-        }
-        // fileStream.write(args[0]);
-        write.apply(process.stderr, args);
-        return true;
-      };
-    }
     this.consoleEnabled = true;
   }
 
@@ -88,9 +58,9 @@ export class Smartlog implements plugins.smartlogInterfaces.ILogDestination {
       ...{
         id: plugins.isounique.uni(),
         type: 'none',
-        instance: this.uniInstanceId
+        instance: this.uniInstanceId,
       },
-      ...correlationArg
+      ...correlationArg,
     };
 
     if (this.consoleEnabled) {
@@ -103,7 +73,7 @@ export class Smartlog implements plugins.smartlogInterfaces.ILogDestination {
       context: this.logContext,
       level: logLevelArg,
       correlation: correlationArg,
-      message: logMessageArg
+      message: logMessageArg,
     };
     if (logDataArg) {
       logPackage.data = logDataArg;
@@ -117,7 +87,7 @@ export class Smartlog implements plugins.smartlogInterfaces.ILogDestination {
     logDataArg?: any,
     correlationArg: plugins.smartlogInterfaces.ILogCorrelation = {
       id: plugins.isounique.uni(),
-      type: 'none'
+      type: 'none',
     }
   ) {
     if (this.consoleEnabled) {
@@ -129,7 +99,7 @@ export class Smartlog implements plugins.smartlogInterfaces.ILogDestination {
       context: this.logContext,
       level: logLevelArg,
       message: logMessageArg,
-      correlation: correlationArg
+      correlation: correlationArg,
     });
   }
 

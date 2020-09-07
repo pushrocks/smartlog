@@ -21,7 +21,7 @@ export class LogGroup {
       type: 'none',
       group: this.groupId,
       instance: this.smartlogRef.uniInstanceId,
-      transaction: this.transactionId
+      transaction: this.transactionId,
     });
   }
 }
