@@ -34,7 +34,7 @@ export class Smartlog implements plugins.smartlogInterfaces.ILogDestination {
   /**
    * enables console logging
    */
-  public enableConsole(optionsArg?: { captureAll: boolean }) {
+  public enableConsole(optionsArg?: { }) {
     this.consoleEnabled = true;
   }
 
