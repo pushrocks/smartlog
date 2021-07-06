@@ -38,7 +38,7 @@ export class Smartlog implements plugins.smartlogInterfaces.ILogDestination {
     if (globalThis.process && optionsArg && optionsArg.captureAll) {
       const process = globalThis.process;
       const write = process.stdout.write;
-      process.stdout.write = (...args) => {
+      process.stdout.write = (...args: any) => {
         const logString: string = args[0];
         if (!logString.startsWith('LOG') && typeof logString === 'string') {
           switch (true) {
@@ -55,7 +55,7 @@ export class Smartlog implements plugins.smartlogInterfaces.ILogDestination {
         return true;
       };
 
-      process.stderr.write = (...args) => {
+      process.stderr.write = (...args: any) => {
         if (!args[0].startsWith('LOG')) {
           this.log('error', args[0]);
           return;
