@@ -40,6 +40,9 @@ export class Smartlog implements plugins.smartlogInterfaces.ILogDestination {
       const write = process.stdout.write;
       process.stdout.write = (...args: any) => {
         const logString: string = args[0];
+        if (!logString) {
+          return;
+        }
         if (!logString.startsWith('LOG') && typeof logString === 'string') {
           switch (true) {
             case logString.substr(0, 20).includes('Error:'):
