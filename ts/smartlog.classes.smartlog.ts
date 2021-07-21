@@ -41,9 +41,8 @@ export class Smartlog implements plugins.smartlogInterfaces.ILogDestination {
       process.stdout.write = (...args: any) => {
         const logString: string = args[0];
         if (!logString || typeof logString.startsWith !== 'function') {
-          return;
-        }
-        if (!logString.startsWith('LOG') && typeof logString === 'string') {
+          // lets continue as planned
+        } else if (!logString.startsWith('LOG') && typeof logString === 'string') {
           switch (true) {
             case logString.substr(0, 20).includes('Error:'):
               this.log('error', logString);
